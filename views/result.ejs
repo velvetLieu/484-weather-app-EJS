@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=City%></title>
+
+  <!-- For creating image on the tab -->
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"> -->
+
+  <!-- Reference to the Bing Maps SDK -->
+  <script type='text/javascript'
+    src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Amo4qgB3YIXOOlfVLG8mRovNkoHMLx3B0RCUjgfkagOLEjQ1IkzoXUTFPrTh_K1G'
+    async defer></script>
+
+
+  <!-- Font Awesome Icons -->
+
+  <!-- <link rel="stylesheet" href="./css/all.css"> -->
+
+  <!-- serverCSS configuration -->
+  <!-- fontawesome cdn -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <!-- For linking css -->
+  <!-- <link rel="stylesheet" href="../public/styles.css"> -->
+  <!-- UNCOMMENT THIS IF WORKING LOCALLY WITH CSS STYLES -->
+</head>
+
+<script type='text/javascript'>
+  var map, animatedLayer;
+
+  //Weather tile url from Iowa Environmental Mesonet (IEM): https://mesonet.agron.iastate.edu/ogc/
+  var urlTemplate = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-{timestamp}/{zoom}/{x}/{y}.png';
+
+  //The time stamps values for the IEM service for the last 50 minutes broken up into 5 minute increments.
+  var timestamps = ['900913-m50m', '900913-m45m', '900913-m40m', '900913-m35m', '900913-m30m', '900913-m25m',
+    '900913-m20m', '900913-m15m', '900913-m10m', '900913-m05m', '900913'
+  ];
+
+
+
+  function GetMap() {
+    var map = new Microsoft.Maps.Map('#myMap', {
+      credentials: 'Amo4qgB3YIXOOlfVLG8mRovNkoHMLx3B0RCUjgfkagOLEjQ1IkzoXUTFPrTh_K1G',
+      center: new Microsoft.Maps.Location( <%= latitude %> , <%= longitude %> ),
+      mapTypeId: Microsoft.Maps.MapTypeId.canvasLight,
+      zoom: 9
+    })
+    var tileSources = [];
+
+    //Create a tile source for each time stamp.
+    for (var i = 0; i < timestamps.length; i++) {
+      var tileSource = new Microsoft.Maps.TileSource({
+        uriConstructor: urlTemplate.replace('{timestamp}', timestamps[i])
+      });
+      tileSources.push(tileSource);
+    }
+
+    //Create the animated tile layer and add it to the map.
+    animatedLayer = new Microsoft.Maps.AnimatedTileLayer({
+      mercator: tileSources,
+      frameRate: 500
+    });
+    map.layers.insert(animatedLayer);
+
+
+
+
+  };
+</script>
+
+
+
+<body>
+  <!-- ---- HEADER ----
+  <header class="main-header">
+    <nav class="header">
+      <div class="header-brand flex-row">
+        <a href="#" class="weather-logo"><img src="images/weather-logo.png" alt="Weather484 Logo"></a>
+      </div>
+      <div class="zip-search">
+        <h2>Weather for <%= Zipcode%></h2>
+        <form action="/" method="post">
+          <label for="zipcode">Enter in your Zipcode</label>
+          <input type="number" name="zipcode" min="00501" max="99950" minlength="5" maxlength="5" required>
+          <button type="submit" name="button">submit</button>
+        </form>
+      </div>
+    </nav>
+  </header> -->
+  <!--X--- HEADER --X-->
+
+  <main>
+    <!------ Today's Forecast ------->
+    <section class="container">
+      <div class="site-title">
+        <h2>TODAY'S FORECAST</h2>
+        <p><%= date %></p>
+      </div>
+      <div class="today">
+        <span>This is where the day's forecast bar will go</span>
+      </div>
+    </section>
+    <!----X--Today's Forecast ---X-->
+
+    <!------ MID CONTENT -------->
+    <section class="container">
+
+      <div class="site-content">
+        <!----- weather data ------>
+        <aside class="sidebar">
+          <div class="weather-data">
+            <h2>Weather Data Sidebar</h2>
+            <h3><%=City%></h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita velit nobis corporis dignissimos cum
+              nemo, nam explicabo deleniti dolorum ut blanditiis possimus similique sed aut saepe provident animi,
+              sapiente commodi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita velit nobis corporis dignissimos cum
+              nemo, nam explicabo deleniti dolorum ut blanditiis possimus similique sed aut saepe provident animi,
+              sapiente commodi.</p>
+          </div>
+        </aside>
+        <!--X-- weather data ---X-->
+        <!------ weather map ------->
+        <div class="weather-map">
+          <h2>Weather Map</h2>
+          <div id="myMap"></div>
+        </div>
+        <!-- X--- weather map ----X -->
+      </div>
+    </section>
+    <!--X--- MID CONTENT ----X--->
+
+    <!----- 5 day forcast ------>
+    <section class="container">
+      <div class="site-content">
+        <div class="five-day">
+          <h2>5 DAY FORECAST</h2>
+          <span>5 day forecast bar here</span>
+        </div>
+      </div>
+    </section>
+    <!--X-- 5 day forcast ---X-->
+
+    <div class="container">
+      <div class="card-group">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!------- FOOTER -------->
+  <footer class="footer">
+    <div class="container">
+      <h2>I'm not sure if we'll need a footer but if so it can go here</h2>
+    </div>
+  </footer>
+  <!---X--- FOOTER ----X--->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

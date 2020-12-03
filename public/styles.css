@@ -1,0 +1,156 @@
+html, body {
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+:root {
+  /* Theme colors */
+  --text-grey: #3f4954;
+  --text-cream: #f4f1de;
+  --text-bluegrey: #6c8ead;
+
+  /* Gradient colors */
+  --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+/*------------- GLOBAL -------------*/
+* {
+  box-sizing: border-box;
+  color:black;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-bluegrey);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  font-family: var(--Lexend);
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-family: var(--Lexend);
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-family: var(--Abel);
+  font-size: 1.3rem;
+}
+
+span {
+  font-family: var(--Abel);
+}
+
+/* .container {
+  margin: 0 5vw;
+} */
+
+.text-grey {
+  color: var(--text-grey);
+}
+
+p {
+  font-family: var(--Lexend);
+  color: text-light; /* FFFFFFFIIIIIIIIXXXXXXXXX THIS */
+}
+
+
+/*-----X------- GLOBAL ------X-------*/
+
+
+/*------------ HEADER PIC -----------*/
+.main-header {
+  background-color: aliceblue;
+  height: 10vh;
+}
+
+.main-header .header {
+  display: block;
+  padding: 0 10px;
+  height: 0;
+  overflow-wrap: none;
+  transition: height 1s ease-in-out;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+}
+/* HEADER PIC  */
+
+
+/*----------- MAIN CONT ------------*/
+/*---------- site title -----------*/
+main .site-title {
+  background: #C2C7CA;
+  display: flex;
+  font-family: var(--Lexend);
+  opacity: 80%;
+}
+
+main .site-title .site-background {
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+main .site-title h2 {
+  color: #324376;
+  margin: 0.5rem;
+}
+/*-----X---- site title ----X------*/
+
+/*-------- site content --------*/
+main .site-content {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+/*---X---- site content ---X----*/
+
+/*-------- sidebar --------*/
+.site-content > .sidebar {
+  font-family: var(--Livvic);
+}
+/*---X---- sidebar ---X----*/
+
+/*-------- weather map --------*/
+.site-content > .weather-map {
+  font-family: var(--Livvic);
+}
+/*---X---- weather map ---X----*/
+
+/*-------- 5 day forecast --------*/
+.site-content > .sidebar {
+  font-family: var(--Livvic);
+}
+/*---X---- 5 day forecast ---X----*/
+/*-----X----- MAIN CONT -----X------*/
+
+
+/*----------- FOOTER ------------*/
+footer.footer {
+  height: 100%;
+  background: black;
+  position: relative;
+}
+/* 
+footer.footer .container h2 {
+  color: white;
+} */
+/*-----X----- FOOTER -----X------*/
+
+
+#myMap{
+  width: 900px;
+  height: 700px;
+}
