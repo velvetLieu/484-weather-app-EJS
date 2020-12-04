@@ -74,9 +74,10 @@
   };
 </script>
 
-
+<%- include('partials/navbar'); -%>
 
 <body>
+
   <!-- ---- HEADER ----
   <header class="main-header">
     <nav class="header">
@@ -117,12 +118,7 @@
           <div class="weather-data">
             <h2>Weather Data Sidebar</h2>
             <h3><%=City%></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita velit nobis corporis dignissimos cum
-              nemo, nam explicabo deleniti dolorum ut blanditiis possimus similique sed aut saepe provident animi,
-              sapiente commodi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita velit nobis corporis dignissimos cum
-              nemo, nam explicabo deleniti dolorum ut blanditiis possimus similique sed aut saepe provident animi,
-              sapiente commodi.</p>
+            <p> <%=Description%></p>
           </div>
         </aside>
         <!--X-- weather data ---X-->
