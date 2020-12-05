@@ -53,7 +53,8 @@ app.post('/zipcode', function (req, res) {
     data = response.data;
     const response2 = await axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=minutely,hourly&appid=b0de12ed03277da2744c6b4d4a8e3c8f&units=imperial");
     daily = response2.data;
-    console.log(daily);
+    console.log(daily.daily[0].dt);
+    console.log(new Date(daily.daily[0].dt*1000));
     var description;
 
     // checks null alert values
