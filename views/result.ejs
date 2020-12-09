@@ -48,9 +48,9 @@
           <div class="weather-data">
             <h2>Weather Data Sidebar</h2>
             <h3><%=City%></h3>
-            <p> <%=Description.substring(0,400)%> <a href="">Read more ....</a>  </p>
+            <p> <%=Description.substring(0,400)%> <a href="">Read more ....</a> </p>
 
-            <%- include('components/CurrentWeather',{day: Today}) -%>
+            <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
           </div>
         </aside>
         <!--X-- weather data ---X-->
@@ -63,28 +63,25 @@
       </div>
     </section>
     <!--X--- MID CONTENT ----X--->
-
+<hr>
     <!----- 5 day forcast ------>
-    <section class="container">
-      <div class="site-content">
-        <div class="five-day">
-          <h2>5 DAY FORECAST</h2>
+    <section>
+      <div class="container text-center">
+      <h2>5 Day Forecast</h2>
+        <div class="card-group">
+
+          <% for(var i = 1 ; i<6; i++){  %>
+          <%- include('components/forecastCard',{day: Daily[i]}); -%>
+          <%} %>
+
         </div>
       </div>
     </section>
     <!--X-- 5 day forcast ---X-->
-<hr>
-    <div class="container">
-      <div class="card-group">
-      
-      <% for(var i = 1 ; i<6; i++){  %>
-       <%- include('components/forecastCard',{day: Daily[i]}); -%>  
-      <%} %>
-      
-      </div>
-    </div>
+
+
   </main>
 
   <!------- FOOTER -------->
-   
-<%- include('partials/footer') -%>
+
+  <%- include('partials/footer') -%>

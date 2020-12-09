@@ -50,21 +50,20 @@ app.post('/zipcode', function (req, res) {
   const getWeather = async function (url) {
    
     const response = await axios.get(url);
-   
     data = response.data;
-   
     const response2 = await axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=minutely,hourly&appid=b0de12ed03277da2744c6b4d4a8e3c8f&units=imperial");
-   
     daily = response2.data;
-   
+    const response3 = await axios.get("http://api.openweathermap.org/data/2.5/air_pollution?lat="+data.coord.lat+"&lon="+data.coord.lon+"&appid=b0de12ed03277da2744c6b4d4a8e3c8f");
+    airQuality = response3.data;
+
+    console.log(airQuality.list[0].main.aqi);
+
+
     let today = daily.current;
-   
     let fiveDay = daily.daily;
-   
+    let airQualityIndex = airQuality.list[0].main.aqi;
     var description;
      
-
-    console.log(today);
     
     // checks null alert values
     if(!daily.alerts){
@@ -82,7 +81,7 @@ app.post('/zipcode', function (req, res) {
       longitude: data.coord.lon,
       latitude: data.coord.lat,
       date: new Date(),
-
+      airQualityIndex:airQualityIndex, 
       Today: today,
       //Array 
       Daily: fiveDay
