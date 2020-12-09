@@ -44,23 +44,27 @@ app.post('/zipcode', function (req, res) {
   };
 
   var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=b0de12ed03277da2744c6b4d4a8e3c8f"
-
-
-
   // makes two api calls, using async and await this 
 
   
   const getWeather = async function (url) {
+   
     const response = await axios.get(url);
+   
     data = response.data;
+   
     const response2 = await axios.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=minutely,hourly&appid=b0de12ed03277da2744c6b4d4a8e3c8f&units=imperial");
+   
     daily = response2.data;
+   
     let today = daily.current;
+   
     let fiveDay = daily.daily;
+   
     var description;
      
 
-    console.log(fiveDay[1]);
+    console.log(today);
     
     // checks null alert values
     if(!daily.alerts){
