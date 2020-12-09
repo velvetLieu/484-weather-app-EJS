@@ -26,25 +26,6 @@
 <%- include('partials/navbar'); -%>
 
 <body>
-
-  <!-- ---- HEADER ----
-  <header class="main-header">
-    <nav class="header">
-      <div class="header-brand flex-row">
-        <a href="#" class="weather-logo"><img src="images/weather-logo.png" alt="Weather484 Logo"></a>
-      </div>
-      <div class="zip-search">
-        <h2>Weather for <%= Zipcode%></h2>
-        <form action="/" method="post">
-          <label for="zipcode">Enter in your Zipcode</label>
-          <input type="number" name="zipcode" min="00501" max="99950" minlength="5" maxlength="5" required>
-          <button type="submit" name="button">submit</button>
-        </form>
-      </div>
-    </nav>
-  </header> -->
-  <!--X--- HEADER --X-->
-
   <main>
     <!------ Today's Forecast ------->
     <section class="container">
@@ -67,7 +48,9 @@
           <div class="weather-data">
             <h2>Weather Data Sidebar</h2>
             <h3><%=City%></h3>
-            <p> <%=Description%></p>
+            <p> <%=Description.substring(0,400)%> <a href="">Read more ....</a>  </p>
+
+            <%- include('components/CurrentWeather',{day: Today}) -%>
           </div>
         </aside>
         <!--X-- weather data ---X-->
@@ -86,7 +69,6 @@
       <div class="site-content">
         <div class="five-day">
           <h2>5 DAY FORECAST</h2>
-          <span>5 day forecast bar here</span>
         </div>
       </div>
     </section>
@@ -94,21 +76,15 @@
 <hr>
     <div class="container">
       <div class="card-group">
-       <%- include('components/forecastCard'); -%>
-       <%- include('components/forecastCard'); -%>
-       <%- include('components/forecastCard'); -%>
-       <%- include('components/forecastCard'); -%>
-       <%- include('components/forecastCard'); -%>
-       
+      
+      <% for(var i = 1 ; i<6; i++){  %>
+       <%- include('components/forecastCard',{day: Daily[i]}); -%>  
+      <%} %>
+      
       </div>
     </div>
   </main>
 
   <!------- FOOTER -------->
    
-  <!---X--- FOOTER ----X--->
-
-
-</body>
-
-</html>
+<%- include('partials/footer') -%>

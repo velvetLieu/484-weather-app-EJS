@@ -1,0 +1,11 @@
+ <div class="card" style="width: 15rem;">
+     <div class="card-body">
+         <h5 class="card-title"><%= new Date(day.dt*1000) %></h5>
+     </div>
+     <img class="weather-icon" src="http://openweathermap.org/img/wn/<%= day.weather[0].icon %>@2x.png" alt="">
+     <ul class="list-group list-group-flush">
+         <li class="list-group-item">Current Temperature: <%= day.temp %>° F</li>
+         <li class="list-group-item">Feels-Like: <%= day.feels_like %>° F</li>
+         <li class="list-group-item">Vestibulum at eros</li>
+     </ul>
+ </div>
