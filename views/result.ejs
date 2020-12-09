@@ -34,7 +34,7 @@
         <p><%= date %></p>
       </div>
       <div class="today">
-        <span>This is where the day's forecast bar will go</span>
+        <span>This is where the day's forecast bar will go.</span>
       </div>
     </section>
     <!----X--Today's Forecast ---X-->
@@ -76,15 +76,15 @@
 <hr>
     <div class="container">
       <div class="card-group">
-      
+
       <% for(var i = 1 ; i<6; i++){  %>
-       <%- include('components/forecastCard',{day: Daily[i]}); -%>  
+       <%- include('components/forecastCard',{day: Daily[i]}); -%>
       <%} %>
-      
+
       </div>
     </div>
   </main>
 
   <!------- FOOTER -------->
-   
+
 <%- include('partials/footer') -%>
