@@ -9,9 +9,9 @@
     <hr class="my-4">
 
     <p class="lead">
-      <a class="btn btn-primary btn-lg" type="button" href="/zipcode" role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Search by Zipcode</a>
+      <button class="btn btn-primary btn-lg" type="button" role="button" data-toggle="collapse" data-target="#collapseZip" aria-expanded="false" aria-controls="collapseZip">Search by Zipcode</button>
     </p>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="collapseZip">
       <div class="card card-body">
         <form action="/zipcode" method="post" class="form-control-lg form-inline mx-auto">
           <label for="zipcode"></label>
@@ -20,6 +20,18 @@
         </form>
       </div>
     </div>
+
+    <!--remove if utilizing City Search>
+    <div class="collapse" id="collapseCity">
+      <div class="card card-body">
+        <form action="/zipcode" method="post" class="form-control-lg form-inline mx-auto">
+          <label for="zipcode"></label>
+          <input type="text" class="form-control mb-2 mr-sm-2" placeholder="City" name="zipcode" min="00501" max="99950"  minlength="5" maxlength="5" required>
+          <button class="btn btn-primary mb-2" type="submit" name="button">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-->
 </div>
 
 
