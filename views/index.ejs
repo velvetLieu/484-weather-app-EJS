@@ -22,16 +22,19 @@
       </div>
     </div>
 
-     <div class="collapse" id="collapseCity">
+  <p class="lead">
+      <button class="btn btn-warning btn-lg" type="button" role="button" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseZip">Search by City</button>
+    </p>
+   <div class="collapse" id="collapseCity">
        <div class="card card-body">
          <form action="/city" method="post" class="form-control-lg form-inline mx-auto">
-           <label for="city"></label>
-           <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter City here" name="city" required>
+           <label for="City"></label>
+           <input type="text" class="form-control mb-2 mr-sm-2" placeholder="City" name="City" required>
            <button class="btn btn-primary mb-2" type="submit" name="button">Submit</button>
          </form>
        </div>
-     </div>
-
+    </div>
+    
 </div>
 
 
