@@ -1,6 +1,6 @@
  <div class="card" style="width: 15rem;">
      <div class="card-body">
-         <h5 class="card-title"><%= new Date(day.dt*1000) %></h5>
+         <h5 class="card-title"><%= new Date(day.dt*1000).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></h5>
      </div>
      <img class="weather-icon" src="http://openweathermap.org/img/wn/<%= day.weather[0].icon %>@2x.png" alt="">
      <ul class="list-group list-group-flush">
