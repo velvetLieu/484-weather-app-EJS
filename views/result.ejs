@@ -38,33 +38,33 @@
     <!----X--Today's Forecast ---X-->
 
     <!------ MID CONTENT -------->
-    <section class="container">
-
-      <div class="site-content">
-        <!----- weather data ------>
-        <aside class="sidebar">
-          <div class="weather-data">
-            <h2>Weather Data Sidebar</h2>
-            <h3><%=City%></h3>
-            <p> <%=Description.substring(0,400)%> <a href="">Read more ....</a> </p>
-            <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
+    <section id="map">
+      <div class= "container map">
+        <div class="site-content">
+          <!----- weather data ------>
+          <aside class="sidebar">
+            <div class="weather-data text-center">
+              <h2><%=City%></h2>
+              <p> <%=Description.substring(0,400)%> <a href="">Read more ....</a> </p>
+              <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
+            </div>
+          </aside>
+          <!--X-- weather data ---X-->
+          <!------ weather map ------->
+          <div class="weather-map">
+            
+            <div id="myMap"></div>
           </div>
-        </aside>
-        <!--X-- weather data ---X-->
-        <!------ weather map ------->
-        <div class="weather-map">
-          <h2>Weather Map</h2>
-          <div id="myMap"></div>
+          <!-- X--- weather map ----X -->
         </div>
-        <!-- X--- weather map ----X -->
-      </div>
+        <div>
     </section>
     <!--X--- MID CONTENT ----X--->
-<hr>
+    <hr>
     <!----- 5 day forcast ------>
     <section>
       <div class="container text-center">
-      <h2>5 Day Forecast</h2>
+        <h2>5 Day Forecast</h2>
         <div class="card-group">
 
           <% for(var i = 1 ; i<6; i++){  %>
@@ -75,8 +75,11 @@
       </div>
     </section>
   </main>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 
   <!------- FOOTER -------->
 
-<%- include('partials/footer') -%>
+  <%- include('partials/footer') -%>

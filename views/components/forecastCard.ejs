@@ -1,14 +1,19 @@
+
  <div class="card" style="width: 20rem;">
- <div class="card-header"><%= new Date(day.dt*1000).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></div>
+     <div class="card-header">
+         <%= new Date(day.dt*1000).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %>
+     </div>
      <div class="card-body">
-         
-     
-     <img class="card-img-top weather-icon" src="http://openweathermap.org/img/wn/<%= day.weather[0].icon %>@2x.png" alt="">
-     <ul class="list-group list-group-flush">
-         <li class="list-group-item ">High: <%= day.temp.max %>° F</li>
-         <li class="list-group-item ">Low: <%= day.temp.min %>° F</li>
-         <li class="list-group-item ">Humidity: <%= day.humidity %>%</li>
-         <li class="list-group-item ">Description:<br><%= day.weather[0].description %><p></li>
-     </ul>
+
+
+         <img class="card-img-top weather-icon" src="http://openweathermap.org/img/wn/<%= day.weather[0].icon %>@2x.png"
+             alt="">
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item ">High: <%= day.temp.max %>° F</li>
+             <li class="list-group-item ">Low: <%= day.temp.min %>° F</li>
+             <li class="list-group-item ">Humidity: <%= day.humidity %>%</li>
+             <li class="list-group-item ">Description:<br><%= day.weather[0].description %><p>
+             </li>
+         </ul>
      </div>
  </div>
