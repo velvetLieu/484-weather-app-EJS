@@ -1,7 +1,11 @@
-html, body {
+/* html, body {
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+} */
+
+html, body {
+  height: 100%;
 }
 
 :root {
@@ -53,11 +57,6 @@ h3 {
 span {
   font-family: var(--Abel);
 }
-
-/* .container {
-  margin: 0 5vw;
-} */
-
 .text-grey {
   color: var(--text-grey);
 }
@@ -141,7 +140,9 @@ main .site-content {
 #myMap{
   width: 900px;
   height: 700px;
+
 }
+
 .weather-icon{
   width: 100px;
   margin:0 auto;
@@ -153,3 +154,8 @@ main .site-content {
   line-height: 60px;
   background-color: #f5f5f5;
 }
+
+.map {
+  padding-top: 1%;
+}
+
