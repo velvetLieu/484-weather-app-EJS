@@ -159,3 +159,11 @@ main .site-content {
   padding-top: 1%;
 }
 
+.landing{
+  margin: 10% auto;
+  width: 600px;
+}
+
+.fiveDay{
+  padding-bottom: 5%;
+}
