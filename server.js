@@ -20,7 +20,7 @@ app.use(express.static("public"));
 
 
 app.get('/', function (req, res) {
-  res.render(__dirname + "/views/index");
+  res.render(__dirname + "/views/index", {title: "484 Weather App"});
 });
 
 
@@ -54,7 +54,7 @@ app.post('/city', function(req,res){
 
     // checks null alert values
     if(!daily.alerts){
-      description = "Weather Description Not Available"
+      description = "Not Available"
     }
     else{
       description = daily.alerts[0].description
@@ -114,7 +114,7 @@ app.post('/zipcode', function (req, res) {
     
     // checks null alert values
     if(!daily.alerts){
-      description = "Weather Description Not Available"
+      description = "Not Available"
     }
     else{
       description = daily.alerts[0].description
