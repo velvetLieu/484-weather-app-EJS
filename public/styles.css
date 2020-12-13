@@ -93,7 +93,7 @@ p {
 /*---------- site title -----------*/
 main .site-title {
   background: #C2C7CA;
-  display: flex;
+ border-radius: 5px;
   font-family: var(--Lexend);
   opacity: 80%;
 }
