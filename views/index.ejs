@@ -1,10 +1,10 @@
 <%- include('partials/header'); -%>
 <%- include('partials/navbar'); -%>
-
-
+<!-- This is the jumbo tron landing file, using bootstrap-->
 <body class="text-center">
 <div class="container">
   <div class="jumbotron landing">
+  <!-- -->
     <h1 class="display-4">Welcome to our Weather App</h1>
     <p class="lead">Please search by Zipcode or City Name.</p>
     <hr class="my-4">
@@ -14,10 +14,13 @@
       <button class="btn btn-warning btn-lg" type="button" role="button" data-toggle="collapse"
         data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">Search by City</button>
     </p>
+    <!-- This is the collapable body from bootstrap -->
     <div class="collapse" id="collapseZip">
       <div class="card card-body">
+      <!-- Searches based on zipcode -->
         <form action="/zipcode" method="post" class="form-control-lg form-inline mx-auto">
           <label for="zipcode"></label>
+          <!-- soft input validation that will limit it to the zipcode -->
           <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Zipcode here" name="zipcode"
             min="00501" max="99950" minlength="5" maxlength="5" required>
           <button class="btn btn-primary mb-2" type="submit" name="button">Search</button>
@@ -26,6 +29,7 @@
     </div>
     <div class="collapse" id="collapseCity">
       <div class="card card-body">
+      <!-- Searches for city -->
         <form action="/city" method="post" class="form-control-lg form-inline mx-auto">
           <label for="city"></label>
           <input type="text" class="form-control mb-2 mr-sm-2" name="City" placeholder="Enter City here" required>
