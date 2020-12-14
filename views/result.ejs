@@ -1,6 +1,15 @@
 <%- include("partials/header", {title: City}) -%>
 <%- include('components/map/mapAnimation',{latitude: latitude, longitude: longitude} ) -%>
-<%- include('partials/navbar'); -%>
+
+<%- include("partials/navbarpartials/navbarHeader") -%>
+<% if (!Zipcode) { %>
+      <%- include("partials/forms/city") -%>
+<% } else {%>
+ <%- include("partials/forms/zipCode") -%>
+
+<% }%>
+<%- include("partials/navbarpartials/navbarFooter") -%>
+
 
 <body>
   <main>

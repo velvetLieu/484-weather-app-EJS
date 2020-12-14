@@ -66,6 +66,7 @@ app.post('/city', function(req,res){
 
     res.render(__dirname + "/views/result", {
       City: data.name,
+      Zipcode: null,
       Description: description,
       longitude: data.coord.lon,
       latitude: data.coord.lat,
