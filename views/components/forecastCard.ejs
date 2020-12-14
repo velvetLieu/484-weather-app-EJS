@@ -1,6 +1,7 @@
-
+ <!-- this is a card component for the 5 day forecast -->
  <div class="card" style="width: 20rem;">
      <div class="card-header">
+      <!-- using the pass through data we can build this component using javascript-->
          <%= new Date(day.dt*1000).toLocaleDateString('en-US',{ weekday: 'short', month: 'long', day: 'numeric' }) %>
      </div>
      <div class="card-body">
