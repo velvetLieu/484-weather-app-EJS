@@ -132,6 +132,7 @@ app.post('/zipcode', function (req, res) {
       Today: today,
       //Array 
       Daily: fiveDay
+      
     })
   }
 
