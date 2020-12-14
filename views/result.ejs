@@ -57,24 +57,8 @@
                 <ul class="list-group list-group-flush" id="hourly-list">
                 <!-- Using EJS we are able to get the daily weather array from the server and parse it out building each hourly module -->
                   <% for(var i = 0 ; i<24; i++){  %>
-                  <li class="list-group-item text-left">
-                    <div class="row">
-                      <div class="col">
-                      <!-- builds a time doc -->
-                        <%= new Date((Hourly[i].dt+Offset)*1000).getUTCHours()+ ":00" %>
-                      </div>
-                      <div class="col">
-                      <!-- gets the temperature in faranheight -->
-                        <strong> <%= Hourly[i].temp.toFixed(0) +"° F"%> </strong>
-                      </div>
-                      <div class="col">
-                      <!-- loads a picture about the weather that hour -->
-                        <img class="weather-icon-hourly ml-auto"
-                          src="http://openweathermap.org/img/wn/<%= Hourly[i].weather[0].icon %>@2x.png" alt="">
-                      </div>
-                  </li>
+                  <%- include("components/hourlyFore",{hour: Hourly[i]})-%>
                   <%} %>
-
                 </ul>
               </div>
             </div>
