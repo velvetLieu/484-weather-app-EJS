@@ -45,7 +45,8 @@ h1 {
 }
 
 h2 {
-  font-family: var(--Lexend);
+  /*font-family: var(--Lexend);*/
+  font-family: 'Nunito', sans-serif;
   font-size: 1.8rem;
 }
 
