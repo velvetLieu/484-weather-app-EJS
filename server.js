@@ -47,6 +47,7 @@ app.post('/city', function(req,res){
     airQuality = response3.data;
 
     let today = daily.current;
+   
     let fiveDay = daily.daily;
     let airQualityIndex = airQuality.list[0].main.aqi;
     var description;
@@ -54,7 +55,7 @@ app.post('/city', function(req,res){
 
 
     var hourly = daily.hourly;
-
+    let offset = daily.timezone_offset;
     // checks null alert values
     if(!daily.alerts){
       description = "Not Available"
@@ -73,6 +74,7 @@ app.post('/city', function(req,res){
       date: new Date(),
       airQualityIndex:airQualityIndex, 
       Today: today,
+      Offset: offset,
       //Array 
       Daily: fiveDay,
       Hourly: hourly
@@ -114,6 +116,7 @@ app.post('/zipcode', function (req, res) {
     var hourly = daily.hourly;
 
     let today = daily.current;
+    let offset = daily.timezone_offset;
     let fiveDay = daily.daily;
     let airQualityIndex = airQuality.list[0].main.aqi;
     var description;
@@ -137,6 +140,7 @@ app.post('/zipcode', function (req, res) {
       date: new Date(),
       airQualityIndex:airQualityIndex, 
       Today: today,
+      Offset: offset,
       //Array 
       Daily: fiveDay,
       Hourly: hourly
