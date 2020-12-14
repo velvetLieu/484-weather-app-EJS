@@ -57,7 +57,7 @@
                 <ul class="list-group list-group-flush" id="hourly-list">
                 <!-- Using EJS we are able to get the daily weather array from the server and parse it out building each hourly module -->
                   <% for(var i = 0 ; i<24; i++){  %>
-                  <%- include("components/hourlyFore",{hour: Hourly[i]})-%>
+                  <%- include("components/hourlyFore",{hour: Hourly[i], offset: Offset})-%>
                   <%} %>
                 </ul>
               </div>
