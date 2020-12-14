@@ -1,6 +1,7 @@
 <%- include("partials/header", {title: City}) -%>
 <%- include('components/map/mapAnimation',{latitude: latitude, longitude: longitude} ) -%>
 <%- include('partials/navbar'); -%>
+
 <body>
   <main>
     <!------ Today's Forecast ------->
@@ -14,27 +15,45 @@
 
     <!------ MID CONTENT -------->
     <section id="map">
-      <div class= "container-fluid map">
-        <div class="site-content">
-          <!----- weather data ------>
-          <aside class="sidebar">
-            <div class="weather-data text-center">
-              <h2><%=City%></h2>
-              <h3>Weather Description:</h3>
-              <p> <%=Description.substring(0,300)%>... <strong>To read more click the box</strong></p>
-              <div> <%- include('components/popUpModal',{description: Description}) -%> </div>
-              <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
-            </div>
-          </aside>
-          <!--X-- weather data ---X-->
-          <!------ weather map ------->
-          <div class="weather-map">
-            
-            <div id="myMap"></div>
+      <div class="row">
+        <div class="col">
+          <div class="weather-data text-center">
+            <h2><%=City%></h2>
+            <h3>Weather Description:</h3>
+            <p> <%=Description.substring(0,300)%>... <strong>To read more click the box</strong></p>
+            <div> <%- include('components/popUpModal',{description: Description}) -%> </div>
+            <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
           </div>
-          <!-- X--- weather map ----X -->
         </div>
-        <div>
+        <div class="col">
+          <div id="myMap"></div>
+        </div>
+        <div class="col">
+        <h2>Hourly Forecast</h2>
+          <div class="hourly-weather text-center">
+            <div class="card" style="width: 18rem;">
+              <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+              <ul class="list-group list-group-flush" id="hourly-list">
+                 <% for(var i = 0 ; i<24; i++){  %>
+                <li class="list-group-item text-left">
+                <div class="row">
+                <div class="col">
+                  <%= new Date(Hourly[i].dt*1000).getHours()+ ":00" %> 
+                </div>
+                <div class="col">
+                <strong> <%= Hourly[i].temp.toFixed(0) +"° F"%> </strong>
+                </div>
+                <div class="col">
+                <img class="weather-icon-hourly ml-auto" src="http://openweathermap.org/img/wn/<%= Hourly[i].weather[0].icon %>@2x.png" alt="">
+                </div>             
+                </li>
+                <%} %>
+            
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
     <!--X--- MID CONTENT ----X--->
     <hr>
