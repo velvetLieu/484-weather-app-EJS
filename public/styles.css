@@ -192,3 +192,8 @@ main .site-content {
 .weather-icon-hourly{
   width:50px;
 }
+
+
+.city-name{
+  text-decoration: underline;
+}

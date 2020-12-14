@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col">
           <div class="weather-data text-center">
-            <h2><%=City%></h2>
+            <h1 class="city-name pb-5"><%=City%></h1>
             <h3>Weather Description:</h3>
             <p> <%=Description.substring(0,300)%>... <strong>To read more click the box</strong></p>
             <div> <%- include('components/popUpModal',{description: Description}) -%> </div>
