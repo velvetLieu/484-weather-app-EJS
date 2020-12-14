@@ -67,6 +67,7 @@ p {
 }
 
 
+
 /*-----X------- GLOBAL ------X-------*/
 
 
@@ -92,10 +93,13 @@ p {
 /*----------- MAIN CONT ------------*/
 /*---------- site title -----------*/
 main .site-title {
-  background: #C2C7CA;
- border-radius: 5px;
-  font-family: var(--Lexend);
-  opacity: 80%;
+  /*background: #C2C7CA;*/
+  background: #393A45;
+  border-radius: 5px;
+  /*font-family: var(--Lexend);*/
+  opacity: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 main .site-title .site-background {
@@ -104,8 +108,11 @@ main .site-title .site-background {
 }
 
 main .site-title h2 {
-  color: #324376;
+  /*color: #324376;*/
+  color: white;
   margin: 0.5rem;
+  font-size: 40px;
+  font-family: 'Nunito', sans-serif;
 }
 /*-----X---- site title ----X------*/
 
