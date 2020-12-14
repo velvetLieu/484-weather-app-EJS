@@ -167,3 +167,20 @@ main .site-content {
 .fiveDay{
   padding-bottom: 5%;
 }
+
+.hourly-weather{
+  height: 700px;
+  width: 315px;
+  overflow: auto;
+  border: 2px solid #C2C7CA;
+  border-radius: 5px;
+}
+
+
+.hourly-temp{
+  font-weight: bold;
+}
+
+.weather-icon-hourly{
+  width:50px;
+}
