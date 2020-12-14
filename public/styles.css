@@ -196,5 +196,27 @@ main .site-content {
 
 
 .city-name{
-  text-decoration: underline;
+  font-family: 'Nunito', sans-serif;
+  background: #525361;
+  color: white;
+  opacity: 80%;
+  border-radius: 5px;
+  text-align:center;
+  line-height: 100px;
+  height:100px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 20px;
+}
+
+#hourly-forecast{
+  background: #525361;
+  color: white;
+  opacity: 80%;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-right: 156px;
+
 }
