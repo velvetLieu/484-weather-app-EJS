@@ -45,7 +45,7 @@ app.get('/city', function (req, res) {
 
 app.post('/city', function (req, res) {
   var cityName = req.body.City;
-  var url1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=b0de12ed03277da2744c6b4d4a8e3c8f";
+  var url1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=";
 
   // makes three api calls
   const getCity = async function (url1) {
@@ -114,7 +114,7 @@ app.post('/zipcode', function (req, res) {
     zipCode = "0" + zipCode;
   };
 
-  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=b0de12ed03277da2744c6b4d4a8e3c8f"
+  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid="
   // makes three api calls, using async and await this 
 
 
@@ -166,7 +166,7 @@ app.post('/zipcode', function (req, res) {
   getWeather(url);
 });
 
-// on start up I instruct the app to listen on localhost:3000 or if hosted online the process.env.port
+// on start up I instruct the app to listen on localhost:3000 or if hosted online the process.env.port b0de12ed03277da2744c6b4d4a8e3c8f"
 app.listen(port, function (req, res) {
   console.log("bee boop, weather service initialized");
 });
