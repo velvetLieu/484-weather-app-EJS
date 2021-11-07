@@ -146,5 +146,5 @@ app.post('/zipcode', function (req, res) {
 });
 
 app.listen(port, function (req, res) {
-  console.log("bee boop, weather service initialized");
+  console.log("Server running on localhost:3000");
 });
