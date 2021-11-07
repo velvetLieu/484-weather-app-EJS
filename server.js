@@ -33,9 +33,11 @@ app.get('/city',function (req, res) {
 });
 
 
+
+//City backend
 app.post('/city', function(req,res){
   var cityName = req.body.City;
-  var url1 = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b0de12ed03277da2744c6b4d4a8e3c8f";
+  var url1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=b0de12ed03277da2744c6b4d4a8e3c8f";
 
 
   const getCity = async function(url1){
@@ -57,7 +59,7 @@ app.post('/city', function(req,res){
 
     // checks null alert values
     if(!daily.alerts){
-      description = "Not Available"
+      description = "No Alerts."
     }
     else{
       description = daily.alerts[0].description
@@ -82,7 +84,7 @@ app.post('/city', function(req,res){
 });
 
 
-
+//Zipcode backend
 
 app.post('/zipcode', function (req, res) {
 
@@ -120,7 +122,7 @@ app.post('/zipcode', function (req, res) {
     
     // checks null alert values
     if(!daily.alerts){
-      description = "Not Available"
+      description = "No Alerts."
     }
     else{
       description = daily.alerts[0].description

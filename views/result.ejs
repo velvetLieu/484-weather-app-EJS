@@ -19,7 +19,7 @@
           <div class="weather-data text-center">
             <h1 class="city-name pb-5"><%=City%></h1>
             <h3>Weather Description:</h3>
-            <p> <%=Description.substring(0,300)%>... <strong>To read more click the box</strong></p>
+            <p> <%=Description.substring(0,300)%>. </p>
             <div> <%- include('components/popUpModal',{description: Description}) -%> </div>
             <%- include('components/CurrentWeather',{day: Today, aqi :airQualityIndex}) -%>
           </div>
