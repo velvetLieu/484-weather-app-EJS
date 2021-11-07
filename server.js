@@ -121,7 +121,7 @@ app.post('/zipcode', function (req, res) {
     zipCode = "0" + zipCode;
   };
 
-  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid="
+  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=b0de12ed03277da2744c6b4d4a8e3c8f"
   // makes three api calls, using async and await this 
 
 
