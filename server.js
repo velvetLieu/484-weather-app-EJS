@@ -43,9 +43,14 @@ app.get('/city', function (req, res) {
 });
 
 
-app.post('/city', function (req, res) {
+
+
+//City backend
+app.post('/city', function(req,res){
   var cityName = req.body.City;
-  var url1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=";
+  var url1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=b0de12ed03277da2744c6b4d4a8e3c8f";
+
+
 
   // makes three api calls
   const getCity = async function (url1) {
@@ -70,9 +75,11 @@ app.post('/city', function (req, res) {
     var hourly = daily.hourly;
     let offset = daily.timezone_offset;
     // checks null alert values
-    if (!daily.alerts) {
-      description = "Not Available"
-    } else {
+    if(!daily.alerts){
+      description = "No Alerts."
+    }
+    else{
+
       description = daily.alerts[0].description
     }
 
@@ -99,7 +106,7 @@ app.post('/city', function (req, res) {
 });
 
 
-
+//Zipcode backend
 
 app.post('/zipcode', function (req, res) {
   //holds pass through data
@@ -137,11 +144,10 @@ app.post('/zipcode', function (req, res) {
     let fiveDay = daily.daily;
     let airQualityIndex = airQuality.list[0].main.aqi;
     var description;
-
-
-    // checks null alert values and assigns a description based on what is available or not
-    if (!daily.alerts) {
-      description = "Not Available"
+    
+    // checks null alert values
+    if(!daily.alerts){
+      description = "No Alerts."
     } else {
       description = daily.alerts[0].description
     }
@@ -168,5 +174,6 @@ app.post('/zipcode', function (req, res) {
 
 // on start up I instruct the app to listen on localhost:3000 or if hosted online the process.env.port b0de12ed03277da2744c6b4d4a8e3c8f"
 app.listen(port, function (req, res) {
-  console.log("bee boop, weather service initialized");
+  console.log("Server running on localhost:3000");
 });
+
