@@ -32,7 +32,7 @@ app.get('/city',function (req, res) {
   res.render(__dirname + "/views/index");
 });
 
-
+//Backend Start
 
 //City backend
 app.post('/city', function(req,res){
@@ -59,7 +59,7 @@ app.post('/city', function(req,res){
 
     // checks null alert values
     if(!daily.alerts){
-      description = "No Alerts."
+      description = "No Alerts ."
     }
     else{
       description = daily.alerts[0].description
