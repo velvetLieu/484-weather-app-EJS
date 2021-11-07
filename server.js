@@ -42,7 +42,7 @@ app.get('/city', function (req, res) {
   res.render(__dirname + "/views/index");
 });
 
-
+//Backend Start
 
 
 //City backend
@@ -76,7 +76,7 @@ app.post('/city', function(req,res){
     let offset = daily.timezone_offset;
     // checks null alert values
     if(!daily.alerts){
-      description = "No Alerts."
+      description = "No Alerts ."
     }
     else{
 
@@ -121,7 +121,7 @@ app.post('/zipcode', function (req, res) {
     zipCode = "0" + zipCode;
   };
 
-  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid="
+  var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=b0de12ed03277da2744c6b4d4a8e3c8f"
   // makes three api calls, using async and await this 
 
 
