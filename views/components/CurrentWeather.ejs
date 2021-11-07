@@ -1,7 +1,8 @@
-
+   <!-- This is the main card that is seen with the current weather-->
     <div class="card mx-auto mt-5" style="width: 20rem;">
         <div class="card-body">
             <h5 class="card-title">
+             <!-- Parses data from pass through object -->
                 <%= new Date(day.dt*1000).toLocaleDateString('en-US',{ weekday: 'short', month: 'long', day: 'numeric' }) %>
             </h5>
         </div>

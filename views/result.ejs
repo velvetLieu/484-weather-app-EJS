@@ -1,10 +1,25 @@
+<!-- Passes the Name of the city to the header component -->
+
 <%- include("partials/header", {title: City}) -%>
+
+
+<!-- passes longitude and latitude to the script that loads the map -->
 <%- include('components/map/mapAnimation',{latitude: latitude, longitude: longitude} ) -%>
-<%- include('partials/navbar'); -%>
+
+
+<!-- Builds the nav bar based on if it is zipcode or if it is a city search, dynamic forms -->
+<%- include("partials/navbarpartials/navbarHeader") -%>
+<% if (!Zipcode) { %>
+<%- include("partials/forms/city") -%>
+<% } else {%>
+<%- include("partials/forms/zipCode") -%>
+
+<% }%>
+<%- include("partials/navbarpartials/navbarFooter") -%>
 
 <body>
+<!-- Main Content -->
   <main>
-    <!------ Today's Forecast ------->
     <section class="container">
       <div class="site-title text-center">
         <h2>Today's Forecast</h2>
@@ -13,10 +28,16 @@
     <!----X--Today's Forecast ---X-->
 
     <!------ MID CONTENT -------->
+
+    <!-- Map Section -->
     <section id="map">
+    <!-- Using bootstrap rows / columns we are able to space everything nicely -->
       <div class="row">
         <div class="col">
+        <!-- This is the left hand side of the weather app that will hold current weather data, -->
           <div class="weather-data text-center">
+
+          <!--  Dynamically we are loading the city and a description, if any-->
             <h1 class="city-name pb-5"><%=City%></h1>
             <h3>Weather Description:</h3>
             <p> <%=Description.substring(0,300)%>. </p>
@@ -28,44 +49,32 @@
           <div id="myMap"></div>
         </div>
         <div class="col">
-        <h2 id="hourly-forecast">Hourly Forecast</h2>
+        <!-- Hourly forecast -->
+          <h2 id="hourly-forecast">Hourly Forecast</h2>
           <div class="hourly-weather text-center">
             <div class="card" style="width: 18rem;">
               <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
-              <ul class="list-group list-group-flush" id="hourly-list">
-                 <% for(var i = 0 ; i<24; i++){  %>
-                <li class="list-group-item text-left">
-                <div class="row">
-                <div class="col">
-                  <%= new Date(Hourly[i].dt*1000).getHours()+ ":00" %>
-                </div>
-                <div class="col">
-                <strong> <%= Hourly[i].temp.toFixed(0) +"° F"%> </strong>
-                </div>
-                <div class="col">
-                <img class="weather-icon-hourly ml-auto" src="http://openweathermap.org/img/wn/<%= Hourly[i].weather[0].icon %>@2x.png" alt="">
-                </div>
-                </li>
-                <%} %>
-
-              </ul>
+                <ul class="list-group list-group-flush" id="hourly-list">
+                <!-- Using EJS we are able to get the daily weather array from the server and parse it out building each hourly module -->
+                  <% for(var i = 0 ; i<24; i++){  %>
+                  <%- include("components/hourlyFore",{hour: Hourly[i], offset: Offset})-%>
+                  <%} %>
+                </ul>
               </div>
             </div>
           </div>
         </div>
     </section>
-    <!--X--- MID CONTENT ----X--->
     <hr>
-    <!----- 5 day forcast ------>
+    <!-- 5 day forcast -->
     <section>
       <div class="container text-center fiveDay">
         <h2>5 Day Forecast</h2>
         <div class="card-group">
-
+        <!--Each weather card gets built out -->
           <% for(var i = 1 ; i<6; i++){  %>
           <%- include('components/forecastCard',{day: Daily[i]}); -%>
           <%} %>
-
         </div>
       </div>
     </section>
@@ -74,7 +83,5 @@
     src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
-
   <!------- FOOTER -------->
-
   <%- include('partials/footer') -%>
