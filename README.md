@@ -6,5 +6,5 @@ https://c484-weather-application.herokuapp.com/
 
 ## Built Using 🛠️
 * EJS (Embedded JavaScript)
-* Bootstrap 5
+* Bootstrap 
 * Heroku for hosting
