@@ -8,3 +8,7 @@ https://c484-weather-application.herokuapp.com/
 * EJS (Embedded JavaScript)
 * Bootstrap 
 * Heroku for hosting
+
+##  Features 🎬
+- Zipcode and City search
+- Real-time weather radar map via Bing Maps
